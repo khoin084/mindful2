@@ -6,7 +6,12 @@ var userSchema = new Schema({
     name: String,
     username: String,
     password: String,
-    email: String
+    email: String,
+    city: String,
+    isLoggedIn: {
+        type: Boolean,
+        default: false
+    }
 });
 
 var User = mongoose.model("User", userSchema);

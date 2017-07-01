@@ -6,15 +6,11 @@ var passportlocal = require("passport-local");
 
 module.exports = {
   // This method handles retrieving quotes from the db
-  index: function(req, res) {
-    var query;
-    if (req.query) {
-      query = req.query;
-    }
-    else {
-      query = req.params.id ? { _id: req.params.id } : {};
-    }
-    User.find(query)
+  getUsers: function(req, res) {
+    console.log("inside of getUsers()");
+    console.log(req.body);
+    
+    User.find()
       .then(function(doc) {
         res.json(doc);
       }).catch(function(err) {
@@ -44,7 +40,10 @@ module.exports = {
   },
   // This method handles updating quotes
   update: function(req, res) {
-    Quote.update({
+    console.log("you are inside the update() in controller");
+    console.log("body:", req.body);
+    console.log("_id:", req.params.id);
+    User.update({
       _id: req.params.id
     },
       req.body
@@ -83,7 +82,8 @@ module.exports = {
           if(err) throw err;
           console.log(isMatch);
           if(isMatch) {
-              res.send("Credentials accepted!");
+              // note, send back the entire user.
+              res.send(data);
           }
           else {
               res.send("Password incorrect");

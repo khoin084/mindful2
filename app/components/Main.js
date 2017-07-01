@@ -34,7 +34,6 @@ class Main extends React.Component {
               <a href="/auth/google" className="btn btn-danger"><span className="fa fa-google-plus"></span> Google </a>
               <li><Link to="/login">Login</Link></li>
               <li><Link to="/signup">Sign Up</Link></li>
-              <li><Link to="/dashboard">Dashboard</Link></li>
             </ul>
           </div>
         </div>

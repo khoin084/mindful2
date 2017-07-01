@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-
+// Include the helpers for making API calls
+import api from '../utils/API'
 // Include children components.
 import SideBar from "./children_dashboard/SideBar"
 import MainSection from "./children_dashboard/MainSection"
 
-
-// Include the helpers for making API calls
-var API = require("../utils/API");
 
 // Create the Search component
 class Dashboard extends Component {
@@ -14,18 +12,10 @@ class Dashboard extends Component {
   constructor (props) {
     super(props);
 
-    this.state = { term: ""};
+    this.state = { populated: false};
   }
 
-  getQuotes() {
-    API.getQuotes().then(function(quotesData) {
-        console.log("Quots.js to QuotesPanel.js" , quotesData);
-        this.setState({ quotes: quotesData.data });
-        console.log("new state of quotes: ", this.state.quotes);
-        console.log("saved quotes: ", quotesData.data);
-        
-    }.bind(this));
-  }
+  
 
   // shouldComponentUpdate: function () {
   //   console.log("determine if we should render again?");

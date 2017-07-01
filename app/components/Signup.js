@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { Route, IndexRoute, Router, browserHistory } from "react-router";
 // Include the helpers for making API calls
 import api from '../utils/API'
+import Login from './Login'
+
 
 // Create the Search component
 class Signup extends Component {
@@ -12,6 +15,7 @@ class Signup extends Component {
     {
         username: "",
         email:"",
+        city:"",
         password: "",
         psw_repeat: ""
     };
@@ -19,6 +23,7 @@ class Signup extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeUsername = this.handleChangeUsername.bind(this);
     this.handleChangeEmail = this.handleChangeEmail.bind(this);
+    this.handleChangeCity = this.handleChangeCity.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
     this.handleChangeRPassword = this.handleChangeRPassword.bind(this);
   }
@@ -34,6 +39,12 @@ class Signup extends Component {
     console.log("****: " + event.target.value);
     console.log(this);
     this.setState({email: event.target.value});
+  }
+
+  handleChangeCity(event) {
+    console.log("****: " + event.target.value);
+    console.log(this);
+    this.setState({city: event.target.value});
   }
 
   handleChangePassword(event) {
@@ -56,13 +67,14 @@ class Signup extends Component {
       password: "",
       psw_repeat: ""
     });
+    console.log("about to go to login page");
+    return this.renderLogin();
   }
   // This code handles the sending of the entered user information from the Signup component.
   handleSubmit(event) {
     event.preventDefault();
     console.log("CLICKED");
     console.log(this.state)
-    console.log(api.getQuotes());
     api.saveSignUp(this.state);
     
     this.handleClearForm(event);
@@ -70,6 +82,15 @@ class Signup extends Component {
 
   componentDidMount() {
     console.log("mounted the Signup component");
+  }
+
+  // A helper method for rendering a container to hold all of our articles
+  renderLogin() {
+
+    browserHistory.push('/login');
+    return (
+      <h1> </h1>
+    );
   }
 
   // Render the component. Note how we deploy both the Input and the Quotes Components
@@ -96,6 +117,16 @@ class Signup extends Component {
         placeholder="Enter Email" 
         onChange={this.handleChangeEmail}
         name="email" 
+        required />
+
+      <label><b>City of Resisdence</b></label>
+      <input 
+        type="text" 
+        value={this.state.city}
+        className="form-control"
+        placeholder="Enter Your City of Resisdence" 
+        onChange={this.handleChangeCity}
+        name="city" 
         required />
 
       <label><b>Password</b></label>
