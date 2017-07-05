@@ -1,6 +1,8 @@
 import axios from "axios";
 // Open Weather API Key 
 const apiKeyOpenWeather = '27e2b94a1a01bc405c314d4025bd1174';
+// NYT API Key (Replace with your own API Key)
+var APIKey = "9b3adf57854f4a19b7b5782cdd6e427a";
 
 
 const API = {
@@ -34,15 +36,15 @@ const API = {
     console.log(credentials);
     return axios.post("/api/credentials", credentials);
   },
-  // This will run our query.
-  getWeather: function() {
-    console.log("Get Weather!");
+  // getting weather.
+  getWeather: function(city) {
+    console.log("Get Weather of city: " + city);
     // Run a weather search using Axios. Then return the results as an object with an array.
     // See the Axios documentation for details on how we structured this with the params.
     return axios.get("http://api.openweathermap.org/data/2.5/weather", {
       params: {
         'appid': apiKeyOpenWeather,
-        'q': 'San Diego'
+        'q': city
       }
     })
     .then((results) => {
@@ -51,7 +53,19 @@ const API = {
     }).catch(function (error) {
       console.log(error);
     });
-  }
+  },
+  // getting news.
+  getNews: function() {
+    return axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json", {
+      params: {
+        "api-key": APIKey
+      }
+    })
+    .then(function(results) {
+      console.log("Axios Results", results.data.response);
+      return results.data.response;
+    });
+  } 
 };
 
 export default API;

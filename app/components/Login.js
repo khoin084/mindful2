@@ -128,7 +128,6 @@ class Login extends Component {
     }
     // If we have articles, return this.renderContainer() which in turn, returns all the articles
     return this.renderDashboard();
-    
   }
 }
 
