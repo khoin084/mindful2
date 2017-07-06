@@ -6,16 +6,24 @@ var APIKey = "9b3adf57854f4a19b7b5782cdd6e427a";
 
 
 const API = {
-  // getQuotes returns all quotes from out db
+  // getAllUsers returns all registered users from our db
   getAllUsers: function() {
     return axios.get("/api/info");
   },
-  // Save quote saves a quote to the db,
-  // expects to be passed the new quotes text as an argument
+  // getAllAudio returns all the audio meditation files from our db.
+  getAllAudio: function() {
+    return axios.get("/api/audio");
+  },
+  // Save users to the db,
   saveSignUp: function(newUser) {
     console.log("inside of API.js");
     console.log(newUser);
     return axios.post("/api/user", newUser );
+  },
+  // Save users to the db,
+  saveAudio: function(newAudio) {
+    console.log(newAudio);
+    return axios.post("/api/audio", newAudio );
   },
   // deleteQuote deletes a quote from the db,
   // expects the id of the quote to delete as an argument

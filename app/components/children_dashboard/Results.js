@@ -1,4 +1,5 @@
 import React from 'react';
+import api from '../../utils/API'
 
 class Results extends React.Component {
     constructor (props) {
@@ -6,8 +7,24 @@ class Results extends React.Component {
 
         this.state = 
         {
-            test:""
+            title:"", 
+            link:""
         }; 
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChangeTitle = this.handleChangeTitle.bind(this);
+        this.handleChangeLink = this.handleChangeLink.bind(this);
+    }
+    //event decttection for form
+    handleChangeTitle(event) {
+        console.log("****: " + event.target.value);
+        console.log(this);
+        this.setState({title: event.target.value});
+    }
+
+    handleChangeLink(event) {
+        console.log("****: " + event.target.value);
+        console.log(this);
+        this.setState({link: event.target.value});
     }
     renderDefault () {
         console.log("about to render default");
@@ -58,6 +75,74 @@ class Results extends React.Component {
             </ul>
         );
     }
+    renderAudio () {
+        console.log("audio found: ", this.props.audioLinks);
+        const audioResults = this.props.audioLinks.data.map((audio, index) => {
+            return (
+                <div key={index}>
+                    <li className="list-group-item">
+                        <h3>
+                        <span>
+                            <em>{audio.title}</em>
+                        </span>
+                        <span className="btn-group pull-right">
+                            <a href={audio.link} rel="noopener noreferrer" target="_blank">
+                            <button className="btn btn-default ">Listen</button>
+                            </a>   
+                        </span>
+                        </h3>
+                    </li>
+                </div>
+            );
+        });
+        return (
+            <div>
+                <label><b>Title</b></label>
+                <input 
+                    type="text" 
+                    value={this.state.title}
+                    className="form-control"
+                    placeholder="Title of Medidation" 
+                    onChange={this.handleChangeTitle} 
+                    name="username"
+                    required />
+
+                <label><b>Link</b></label>
+                <input 
+                    type="text" 
+                    value={this.state.link}
+                    className="form-control"
+                    placeholder="Link..." 
+                    onChange={this.handleChangeLink}
+                    name="email" 
+                    required /> 
+                <div className="clearfix">
+                    <button type="submit" className="logAudio" onClick={this.handleSubmit}>Store Audio</button>
+                </div>
+                <ul className="col-md list-group">
+                    {audioResults}
+                </ul>
+            </div>
+        );
+    }
+    // This code handles the sending of the entered user information from the Signup component.
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log("CLICKED");
+        console.log(this.state)
+        api.saveAudio(this.state);
+        
+        this.handleClearForm(event);
+    }
+    //clears the form after a submit click
+    handleClearForm(event) {
+        event.preventDefault();
+        this.setState({
+        title: "",
+        link:"",
+        });
+        return this.renderAudio();
+    }
     render () {
         console.log(this);
         // If we have no articles, render this HTML
@@ -66,6 +151,9 @@ class Results extends React.Component {
         }
         else if(this.props.weatherClicked) {
             return this.renderWeather();
+        }
+        else if(this.props.audioClicked) {
+            return this.renderAudio();
         }
         else {
             return this.renderDefault();

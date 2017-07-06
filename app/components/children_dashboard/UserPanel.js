@@ -18,11 +18,15 @@ class UserPanel extends React.Component {
         humidity:"",
         weatherClicked: false, 
         newsClicked:false, 
-        savedArticles:""
+        savedArticles:"", 
+        audioClicked: false, 
+        savedAudios:""
     };
         //getting user logged information from the get go.
         this.getLoggedInUser();
         this.handleWeatherClick = this.handleWeatherClick.bind(this);
+        this.handleNewsClick = this.handleNewsClick.bind(this);
+        this.handleAudioClick = this.handleAudioClick.bind(this);
         self = this;
         // this.handleChangeUsername = this.handleChangeUsername.bind(this);
         // this.handleChangePassword = this.handleChangePassword.bind(this);
@@ -57,7 +61,8 @@ class UserPanel extends React.Component {
                 tempInF: temp.toFixed(2),
                 humidity: results.data.main.humidity,
                 weatherClicked: true, 
-                newsClicked: false
+                newsClicked: false, 
+                audioClicked: false
             });
         }.bind(this));
     }
@@ -70,12 +75,27 @@ class UserPanel extends React.Component {
             self.setState({ 
                 savedArticles: { docs: results.docs }, 
                 newsClicked: true,
-                weatherClicked: false
+                weatherClicked: false, 
+                audioClicked: false
             });
             console.log("after: ", self.state.savedArticles);
         });
         //calling the open modal method.
        
+    }
+    handleAudioClick() {
+        console.log("clicked audio, time to meditate!");
+        //go to he backend and get them users mang.
+        api.getAllAudio().then(function(allAudio) {
+            console.log("All audio in the DB" , allAudio.data);
+            //set the state once links received. 
+            self.setState({ 
+                newsClicked: false,
+                weatherClicked: false, 
+                audioClicked: true, 
+                savedAudios: { data: allAudio.data }
+            });
+        });
     }
     // Our render method. Utilizing a few helper methods to keep this logic clean
     render() {
@@ -108,7 +128,7 @@ class UserPanel extends React.Component {
                                     <div className="col-md-2 col-sm-2 box0">
                                         <div className="box1">
                                             <p>Click for Audio Files</p>
-                                            <span className="li_stack"></span>
+                                            <span className="li_stack" onClick={this.handleAudioClick}></span>
                                             <h3>23</h3>
                                         </div>
                                         <p>Level up with Every session.</p>
@@ -141,14 +161,16 @@ class UserPanel extends React.Component {
                                             </div>
                                             <div className="panel-body">
                                                 <ul className="list-group">
+                                                    {/*This component is where all the action is.*/}
                                                     <Results 
                                                         articles={this.state.savedArticles}
                                                         weatherClicked={this.state.weatherClicked}
                                                         tempInF={this.state.tempInF}
                                                         humidity={this.state.humidity}
                                                         newsClicked={this.state.newsClicked}
+                                                        audioClicked={this.state.audioClicked}
+                                                        audioLinks={this.state.savedAudios}
                                                     />
-                                                
                                                 </ul>
                                             </div>
                                             </div>
