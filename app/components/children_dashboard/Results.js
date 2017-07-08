@@ -87,7 +87,7 @@ class Results extends React.Component {
                         </span>
                         <span className="btn-group pull-right">
                             <a href={audio.link} rel="noopener noreferrer" target="_blank">
-                            <button className="btn btn-default btn-listen">Listen</button>
+                            <button className="btn btn-default">Listen</button>
                             </a>   
                         </span>
                         </h3>
