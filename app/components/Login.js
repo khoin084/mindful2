@@ -140,8 +140,8 @@ class Login extends Component {
           name="psw" 
           required />
         
-        <input type="checkbox" checked="checked" /> Forgot password?
-        <p>By creating an account you agree to our <a href="#">
+        <p className="forgot-pw"><input type="checkbox" checked="checked"/> Forgot password?</p>
+        <p className="disclaimer">By creating an account you agree to our <a href="#">
         Terms & Privacy</a>.</p>
 
         <div className="clearfix">

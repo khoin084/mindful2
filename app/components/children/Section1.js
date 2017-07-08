@@ -32,7 +32,7 @@ class Section1 extends Component {
                 <img src="images/happy-family.jpg" alt="Image"/>
                 <div className="fh5co-text">
                   <h2>"It's been a wonderful learning experience."</h2>
-                  <p><q>"My wife and I were looking for new ways to strengthen our relationship. With mindfulness, we've been able to identify some of our weak points and focus on resolving them. It's been a wonderful learning experience." - James Pilsen</q></p>
+                  <p><q>My wife and I were looking for new ways to strengthen our relationship. With mindfulness, we've been able to identify some of our weak points and focus on resolving them. It's been a wonderful learning experience."</q> - James Pilsen</p>
                 </div>
               </a>
             </div>
