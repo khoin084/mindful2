@@ -98,67 +98,71 @@ class Signup extends Component {
     console.log(this.state);
 
     return (
-    <form className="formContainer">   
-      <label><b>Username</b></label>
-      <input 
-        type="text" 
-        value={this.state.username}
-        className="form-control"
-        placeholder="Enter Username" 
-        onChange={this.handleChangeUsername} 
-        name="username"
-        required />
+    <div className="form-top">
+      <h3>Sign Up</h3>
+      <p>Fill out the form to get started.</p>
+      <form className="formContainer">   
+        <label><b>Username</b></label>
+        <input 
+          type="text" 
+          value={this.state.username}
+          className="form-control"
+          placeholder="Enter Username" 
+          onChange={this.handleChangeUsername} 
+          name="username"
+          required />
 
-      <label><b>Email</b></label>
-      <input 
-        type="text" 
-        value={this.state.email}
-        className="form-control"
-        placeholder="Enter Email" 
-        onChange={this.handleChangeEmail}
-        name="email" 
-        required />
+        <label><b>Email</b></label>
+        <input 
+          type="text" 
+          value={this.state.email}
+          className="form-control"
+          placeholder="Enter Email" 
+          onChange={this.handleChangeEmail}
+          name="email" 
+          required />
 
-      <label><b>City of Resisdence</b></label>
-      <input 
-        type="text" 
-        value={this.state.city}
-        className="form-control"
-        placeholder="Enter Your City of Resisdence" 
-        onChange={this.handleChangeCity}
-        name="city" 
-        required />
+        <label><b>City of Resisdence</b></label>
+        <input 
+          type="text" 
+          value={this.state.city}
+          className="form-control"
+          placeholder="Enter Your City of Resisdence" 
+          onChange={this.handleChangeCity}
+          name="city" 
+          required />
 
-      <label><b>Password</b></label>
-      <input 
-        type="password"
-        value={this.state.password}
-        className="form-control"
-        placeholder="Enter Password" 
-        onChange={this.handleChangePassword}
-        name="psw" 
-        required />
+        <label><b>Password</b></label>
+        <input 
+          type="password"
+          value={this.state.password}
+          className="form-control"
+          placeholder="Enter Password" 
+          onChange={this.handleChangePassword}
+          name="psw" 
+          required />
 
-      <label><b>Repeat Password</b></label>
-      <input 
-        type="password" 
-        value={this.state.psw_repeat}
-        className="form-control"
-        placeholder="Repeat Password" 
-        onChange={this.handleChangeRPassword}
-        name="psw_repeat" 
-        required />
-      
-      
-      <input type="checkbox" checked="checked" /> Remember me
-      <p>By creating an account you agree to our <a href="#">
-      Terms & Privacy</a>.</p>
+        <label><b>Repeat Password</b></label>
+        <input 
+          type="password" 
+          value={this.state.psw_repeat}
+          className="form-control"
+          placeholder="Repeat Password" 
+          onChange={this.handleChangeRPassword}
+          name="psw_repeat" 
+          required />
+        
+        
+        <input type="checkbox" checked="checked" /> Remember me
+        <p>By creating an account you agree to our <a href="#">
+        Terms & Privacy</a>.</p>
 
-      <div className="clearfix">
-          <button type="button"  className="cancelbtn">Cancel</button>
-          <button type="submit" className="signupbtn" onClick={this.handleSubmit}>Sign Up</button>
-      </div>
-    </form>
+        <div className="clearfix">
+            <button type="button"  className="cancelbtn">Cancel</button>
+            <button type="submit" className="signupbtn" onClick={this.handleSubmit}>Sign Up</button>
+        </div>
+      </form>
+    </div>
     );
   }
 }

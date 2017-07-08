@@ -99,6 +99,19 @@ class UserPanel extends React.Component {
     }
     // Our render method. Utilizing a few helper methods to keep this logic clean
     render() {
+        let headerTitle = "Mindfulness - The Art of Retracting Oneself from the Busy";
+        if(this.state.newsClicked) {
+            headerTitle = "Read Top News!";
+        }
+        else if(this.state.weatherClicked) {
+            headerTitle = "Today's Weather Forecast";
+        }
+        else if(this.audioClicked) {
+            headerTitle = "Time to meditate - Choose Audio sessions below";
+        }
+        else {
+            headerTitle = "Be Mindful";
+        }
         // If we have articles, return this.renderContainer() which in turn returns all saves articles
         return ( 
             <div className="mainSection">
@@ -156,7 +169,7 @@ class UserPanel extends React.Component {
                                             <div className="panel-heading">
                                                 <h1 className="panel-title">
                                                 <strong>
-                                                    <i className="fa fa-btc" aria-hidden="true"></i> Mindfulness - The Art of Retracting Oneself from the Busy</strong>
+                                                    <i className="fa fa-btc" aria-hidden="true"></i> {headerTitle} </strong>
                                                 </h1>
                                             </div>
                                             <div className="panel-body">

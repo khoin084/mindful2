@@ -14,10 +14,10 @@ class Dashboard extends Component {
 
     this.state = { populated: false};
   }
-  // shouldComponentUpdate: function () {
-  //   console.log("determine if we should render again?");
-  //   return true;
-  // },
+  shouldComponentUpdate() {
+    console.log("determine if we should render again?");
+    return true;
+  }
 
   componentDidMount() {
     console.log("mounted Dashboard");

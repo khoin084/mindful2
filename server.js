@@ -19,17 +19,17 @@ var db = process.env.MONGODB_URI || "mongodb://hanifa:can123@ds127730.mlab.com:2
 
 // Connect mongoose to our database
 mongoose.connect(db, function(error) {
-    // Log any errors connecting with mongoose
-    if (error) {
-        console.error(error);
-    }
-    // Or log a success message
-    else {
-        console.log("mongoose connection is successful");
-        // Start the server
-        app.listen(PORT, function() {
-            console.log("Now listening on port %s! Visit localhost:%s in your browser.", PORT, PORT);
-        });
-    }
+  // Log any errors connecting with mongoose
+  if (error) {
+    console.error(error);
+  }
+  // Or log a success message
+  else {
+    console.log("mongoose connection is successful");
+  }
 });
 
+// Start the server
+app.listen(PORT, function() {
+  console.log("Now listening on port %s! Visit localhost:%s in your browser.", PORT, PORT);
+});

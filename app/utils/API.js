@@ -33,9 +33,15 @@ const API = {
   // favorite quote toggle's a quote's 'favorite' status in the db,
   // expects the quote object as an argument
   userAccepted: function(user) {
-    console.log("inside user accepted:", user);
+    console.log("inside user accepted: ", user);
     //invert isLoggedIn to true.
     user.isLoggedIn = !user.isLoggedIn;
+    const { _id, isLoggedIn } = user;
+    return axios.patch(`/api/user/${_id}`, { isLoggedIn });
+  },
+  logOutUser: function(user) {
+    user.isLoggedIn = !user.isLoggedIn;
+    console.log("insdie log out user: ", user);
     const { _id, isLoggedIn } = user;
     return axios.patch(`/api/user/${_id}`, { isLoggedIn });
   },
