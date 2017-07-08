@@ -11,9 +11,9 @@
 *	Edit this section
 *
 * ======================================================= */
-/*Khoi Added these new styles*/
+/*Khoi & Nolan added these new styles*/
 .navbar {
-  background-color: lightcyan;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -86,7 +86,7 @@ button {
 /* Float cancel and signup buttons and add an equal width */
 .cancelbtn,.signupbtn {
     float: left;
-    width: 50%;
+    width: 49.4%;
 }
 
 /* Add padding to container elements */
@@ -622,7 +622,7 @@ body {
 }
 
 #fh5co-projects {
-  background: #f9f9f9;
+  background: #ffefd5;
 }
 #fh5co-projects .fh5co-lead {
   font-size: 50px;
@@ -770,7 +770,7 @@ body {
 }
 
 #fh5co-features-2, #fh5co-features-3, #fh5co-features-4 {
-  background: #f9f9f9;
+  background: #ffefd5 ;
   overflow: hidden;
 }
 #fh5co-features-2 .fh5co-label, #fh5co-features-3 .fh5co-label, #fh5co-features-4 .fh5co-label {
@@ -1132,6 +1132,7 @@ body {
 
 #fh5co-footer {
   padding-bottom: 0;
+  background: #f5f5f5;
 }
 #fh5co-footer a {
   color: #6a7885;

@@ -62,7 +62,8 @@ class SideBar extends React.Component {
                             <h5 className="centered">{this.state.city}</h5>
                         </ul>
                         {/*<!-- sidebar menu end-->*/}
-                        <button type="submit" className="signupbtn" onClick={this.handleClick}>VR YouTube</button>
+                        <button type="submit" className="btn btn-primary" onClick={this.handleClick}>YouTube</button>
+                        <a href="./../../../city_vr/vr-index.html" target="_blank" className="btn btn-primary">VR</a>
                     </div>
                 </aside>
                 {/*<!--sidebar end-->*/}

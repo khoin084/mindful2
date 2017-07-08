@@ -831,6 +831,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 /* LINE ICONS CONFIGURATION */
 
 .mtbox {
+    margin-left: 25%;
 	margin-top: 80px;
 	margin-bottom: 40px;
 }
@@ -852,7 +853,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .box0:hover .box1 {
-	border-bottom: 1px solid #ffffff;
+	border-bottom: 1px solid #000;
 }
 
 .box0 p {
@@ -863,6 +864,22 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
 .box0:hover p {
 	color: #ff865c;
+}
+
+.box0 span {
+	color: #fff;
+}
+
+.box0 h3 {
+	color: #fff;
+}
+
+.box0:hover span {
+	color: #000;
+}
+
+.box0:hover h3 {
+	color: #000;
 }
 
 .box0:hover {
@@ -1734,6 +1751,93 @@ background: #fffbcc !important;
 
 
 /* FORMS CONFIGURATION */
+/*Sign up & Log In pages*/
+.form-top {
+    margin: 5% 20%;
+    padding: 25px 25px 30px 25px;
+	background: #444;
+	background: rgba(255, 255, 255, 0.4);
+	-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
+	text-align: left;
+}
+
+.signup-header, .login-header {
+    text-align: center;
+    color: white;
+}
+
+input[type="text"], 
+input[type="password"], 
+textarea, 
+textarea.form-control {
+	height: 50px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+    background: #fff;
+    border: 3px solid #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+    color: #888;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+textarea, 
+textarea.form-control {
+	padding-top: 10px;
+	padding-bottom: 20px;
+	line-height: 30px;
+}
+
+input[type="text"]:focus, 
+input[type="password"]:focus, 
+textarea:focus, 
+textarea.form-control:focus {
+	outline: 0;
+	background: #fff;
+    border: 3px solid #fff;
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+}
+
+input[type="text"]:-moz-placeholder, input[type="password"]:-moz-placeholder, 
+textarea:-moz-placeholder, textarea.form-control:-moz-placeholder { color: #888; }
+
+input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder, 
+textarea:-ms-input-placeholder, textarea.form-control:-ms-input-placeholder { color: #888; }
+
+input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, 
+textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder { color: #888; }
+
+.cancelbtn, .signupbtn {
+	display: inline-block;
+    width: 25%;
+	height: 50px;
+	margin: 5px;
+	padding: 15px 20px 0 20px;
+	background: rgba(0, 0, 0, 0.3);
+	border: 1px solid #fff;
+	font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #fff;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+}
+.cancelbtn:hover, .signupbtn:hover, 
+.cancelbtn:focus, .signupbtn:focus, 
+.cancelbtn:active, signupbtn:active, 
+.cancelbtn:active:focus, btn:active:focus
+ { outline: 0; opacity: 0.6; background: rgba(0, 0, 0, 0.3); color: #1e90ff; }
+
+/*End sign up page*/
+
+/*YouTube*/
+
+/*YouTube*/
+
 .form-panel {
 	background: #ffffff;
 	margin: 10px;
@@ -1744,6 +1848,7 @@ background: #fffbcc !important;
 
 label {
 	font-weight: 400;
+    visibility: hidden;
 }
 
 .form-horizontal.style-form .form-group {
@@ -2096,6 +2201,22 @@ label {
     width: 100%;
     display: inline-block;
 }
+
+/*Dashboard*/
+.widget-info {
+    margin-top: 10px;
+}
+
+h1.weather-data {
+    color: white;
+}
+/*End Dashboard*/
+
+/*Sidebar*/
+.btn-primary {
+    margin-top: 10px;
+}
+/*End Sidebar*/
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     /* Safari and Chrome */

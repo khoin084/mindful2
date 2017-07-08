@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
 app.use("/", routes);
 
-var db = process.env.MONGODB_URI || "mongodb://hanifa:can123@ds127730.mlab.com:27730/mindful";
+var db = process.env.MONGODB_URI || "mongodb://localhost/mindfulApp";
 
 // Connect mongoose to our database
 mongoose.connect(db, function(error) {

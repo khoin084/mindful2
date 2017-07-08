@@ -38,7 +38,7 @@ class VrYoutube extends Component {
   render() {
     console.log(this.state.videos);
     return (
-      <div className="main-container">
+      <div className="yt-container">
 
         {/* render the search bar */}
         <SearchBar />

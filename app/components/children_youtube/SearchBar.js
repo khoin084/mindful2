@@ -50,11 +50,12 @@ class SearchBar extends Component {
 
     render () {
         return (
-        <div>
+            <div className="search-bar-top">
             {/*controlled component logic to trigger event and setState actually renders new state.*/}
             <input onChange = {this.searchChanged} />
             <button type="submit" onClick={this.handleSubmit}>Search</button>
-        </div>
+            </div>
+        
         );
     }
 }

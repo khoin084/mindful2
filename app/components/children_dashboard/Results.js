@@ -40,9 +40,9 @@ class Results extends React.Component {
             <div>
                 <strong>
                 <i className="fa fa-truck" aria-hidden="true"></i>
-                <h1>{this.props.tempInF}</h1>
+                <h1 className="weather-data">{this.props.tempInF}</h1>
                 </strong>
-                <h1>{this.props.humidity}</h1>
+                <h1 className="weather-data">{this.props.humidity}</h1>
             </div>
         );
     }
