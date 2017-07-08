@@ -3934,7 +3934,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin: 7.5px -15px;
 }
 .navbar-nav > li > a {
-  color: white;
+  color: coral;
   font-size: 18px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -4828,7 +4828,7 @@ a.thumbnail.active {
   list-style: none;
 }
 .list-group {
-  color: #fff;
+  color: navy;
   padding-left: 0;
   margin-bottom: 20px;
   text-align: center;
