@@ -30,7 +30,7 @@ class Results extends React.Component {
         console.log("about to render default");
         return (
             <div>
-                <h1>Be the Blank Slate...</h1>
+                <h1>Click one of the icons above to get started</h1>
             </div>
         );
     }
@@ -87,7 +87,7 @@ class Results extends React.Component {
                         </span>
                         <span className="btn-group pull-right">
                             <a href={audio.link} rel="noopener noreferrer" target="_blank">
-                            <button className="btn btn-default ">Listen</button>
+                            <button className="btn btn-default btn-listen">Listen</button>
                             </a>   
                         </span>
                         </h3>
@@ -102,7 +102,7 @@ class Results extends React.Component {
                     type="text" 
                     value={this.state.title}
                     className="form-control"
-                    placeholder="Title of Medidation" 
+                    placeholder="Title of Meditation" 
                     onChange={this.handleChangeTitle} 
                     name="username"
                     required />

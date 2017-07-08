@@ -38,10 +38,10 @@ class VrYoutube extends Component {
   render() {
     console.log(this.state.videos);
     return (
-      <div className="yt-container">
+      <div className="panel panel-primary">
 
-        {/* render the search bar */}
-        <SearchBar />
+        {/*{ render the search bar }
+        <SearchBar />*/}
         <VideoDetails video={this.state.video} />
         {/* passing data from parent to child */}
       

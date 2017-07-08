@@ -39,10 +39,6 @@ class Features extends React.Component {
                                 </div>
                             </div>
 
-                            <div className="fh5co-btn-action animate-box">
-                                <a href="#" className="btn btn-primary btn-cta">More Features</a>
-                            </div>
-
                         </div>
                     </div>
             </section>

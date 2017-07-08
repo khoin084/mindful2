@@ -165,7 +165,7 @@ class Signup extends Component {
           type="text" 
           value={this.state.city}
           className="form-control"
-          placeholder="Enter Your City of Residence" 
+          placeholder="City of Residence" 
           onChange={this.handleChangeCity}
           name="city" 
           required />
@@ -185,14 +185,14 @@ class Signup extends Component {
           type="password" 
           value={this.state.psw_repeat}
           className="form-control"
-          placeholder="Confirm Your Password" 
+          placeholder="Confirm Password" 
           onChange={this.handleChangeRPassword}
           name="psw_repeat" 
           required />
         
         
-        <input type="checkbox" checked="checked" /> Remember me
-        <p>By creating an account you agree to our <a href="#">
+        <p className="remember-me"><input type="checkbox" checked="checked" /> Remember me</p>
+        <p className="disclaimer">By creating an account you agree to our <a href="#">
         Terms & Privacy</a>.</p>
 
         <div className="clearfix">

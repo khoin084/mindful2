@@ -3846,7 +3846,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .container > .navbar-collapse,
   .container-fluid > .navbar-collapse {
     margin-right: 0;
-    margin-left: 0;
+    margin-left: 47%;
   }
 }
 .navbar-static-top {
@@ -3884,10 +3884,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-width: 1px 0 0;
 }
 .navbar-brand {
+  color: coral;
   float: left;
   height: 50px;
   padding: 15px 15px;
-  font-size: 18px;
+  font-size: 22px;
   line-height: 20px;
 }
 .navbar-brand:hover,
@@ -3933,6 +3934,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin: 7.5px -15px;
 }
 .navbar-nav > li > a {
+  color: white;
+  font-size: 18px;
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 20px;
@@ -4825,8 +4828,10 @@ a.thumbnail.active {
   list-style: none;
 }
 .list-group {
+  color: #fff;
   padding-left: 0;
   margin-bottom: 20px;
+  text-align: center;
 }
 .list-group-item {
   position: relative;
@@ -5215,8 +5220,9 @@ a.list-group-item-danger.active:focus {
 }
 .panel-primary > .panel-heading {
   color: #fff;
-  background-color: #428bca;
-  border-color: #428bca;
+  text-align: center;
+  background-color: coral;
+  border-color: coral;
 }
 .panel-primary > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #428bca;

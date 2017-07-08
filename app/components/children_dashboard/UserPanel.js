@@ -107,10 +107,10 @@ class UserPanel extends React.Component {
             headerTitle = "Today's Weather Forecast";
         }
         else if(this.audioClicked) {
-            headerTitle = "Time to meditate - Choose Audio sessions below";
+            headerTitle = "Time to meditate - Choose audio sessions below";
         }
         else {
-            headerTitle = "Be Mindful";
+            headerTitle = "Welcome to the Dashboard";
         }
         // If we have articles, return this.renderContainer() which in turn returns all saves articles
         return ( 
@@ -169,7 +169,7 @@ class UserPanel extends React.Component {
                                             <div className="panel-heading">
                                                 <h1>
                                                 <strong>
-                                                    <i className="fa fa-btc" aria-hidden="true"></i> {headerTitle} </strong>
+                                                    <i className="fa fa-tachometer" aria-hidden="true"></i> {headerTitle} </strong>
                                                 </h1>
                                             </div>
                                             <div className="panel-body">

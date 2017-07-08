@@ -1753,7 +1753,7 @@ background: #fffbcc !important;
 /* FORMS CONFIGURATION */
 /*Sign up & Log In pages*/
 .form-top {
-    margin: 5% 20%;
+    margin: 10% 20%;
     padding: 25px 25px 30px 25px;
 	background: #444;
 	background: rgba(255, 255, 255, 0.4);
@@ -1764,6 +1764,18 @@ background: #fffbcc !important;
 .signup-header, .login-header {
     text-align: center;
     color: white;
+}
+
+.disclaimer, .checkbox, .forgot-pw, .remember-me {
+color: white;
+}
+
+.forgot-pw, .remember-me {
+    margin: 3px 0 0 3px;
+}
+
+.clearfix {
+    margin-left: 30%;
 }
 
 input[type="text"], 
@@ -1816,8 +1828,8 @@ textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeh
 	display: inline-block;
     width: 25%;
 	height: 50px;
-	margin: 5px;
-	padding: 15px 20px 0 20px;
+	margin: 10px 10px 10px 10px;
+	padding: 15px 20px 10px 20px;
 	background: rgba(0, 0, 0, 0.3);
 	border: 1px solid #fff;
 	font-size: 16px;
@@ -1832,9 +1844,21 @@ textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeh
 .cancelbtn:active:focus, btn:active:focus
  { outline: 0; opacity: 0.6; background: rgba(0, 0, 0, 0.3); color: #1e90ff; }
 
-/*End sign up page*/
+/*End sign up & login pages*/
 
 /*YouTube*/
+
+.yt-container {
+    margin: 5% 25%;
+    padding: 25px 25px 30px 25px;
+    width: 75%;
+    background: #444;
+    background: rgba(255, 255, 255, 0.4);
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+    text-align: left;
+}
 
 /*YouTube*/
 
@@ -2210,12 +2234,43 @@ label {
 h1.weather-data {
     color: white;
 }
+
+.logAudio {
+    display: inline-block;
+    width: 25%;
+	height: 50px;
+	margin: 20px 0 20px 100px;
+	padding: 15px 20px 10px -220px;
+	background: rgba(0, 0, 0, 0.3);
+	border: 1px solid #fff;
+	font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #fff;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+}
+
+.btn-listen {
+    display: inline-block;
+	height: 50px;
+	margin: 20px 0 10px 10px;
+	padding: 15px 20px 10px 20px;
+	background: rgba(0, 0, 0, 0.3);
+	border: 1px solid #fff;
+	font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #fff;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+}
 /*End Dashboard*/
 
 /*Sidebar*/
 .btn-primary {
+    width: 100%;
     margin-top: 10px;
 }
+
 /*End Sidebar*/
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
