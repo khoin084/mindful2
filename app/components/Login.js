@@ -3,6 +3,8 @@ import { Route, IndexRoute, Router, browserHistory } from "react-router";
 // Include the helpers for making API calls
 import api from '../utils/API'
 import Dashboard from './Dashboard'
+let errorsFlag = false;
+let errorMessage = "";
 
 // Create the Search component
 class Login extends Component {
@@ -14,7 +16,8 @@ class Login extends Component {
     {
       username: "",
       password: "",
-      isLoggedIn: false
+      isLoggedIn: false, 
+      eventInfo:""
     };
   
     //maintain context of the object.
@@ -54,18 +57,33 @@ class Login extends Component {
     api.passport(this.state).then((results) => {
       console.log("response from the backend: ", results);
       //this conditional will not work 
-      if(results.data !== "Password incorrect") {
+      if(results.data === "Password incorrect") {
+        console.log("password is incorrect: ", + this.state.isLoggedIn);
+        errorMessage = "Incorrect Username or Password";
+        errorsFlag = true;
+        this.setState({loggedIn: false});
+      }
+      else if(results.data === "User is not registered"){
+        console.log("User is not registered: " + this.state.isLoggedIn);
+        errorMessage = "You are not registered, please sign up";
+        errorsFlag = true;
+        this.setState({loggedIn: false});
+      }
+      else {
         console.log("credentials accpeted!");
         this.setState({loggedIn: true});
         // call user defined method to update isLoggedIn model property.
         this.updateUserStatusInDB(results.data);
       }
-      else {
-        this.setState({loggedIn: false});
-      }
     });
 
     this.handleClearForm(event);
+  }
+  handleCancel() {
+    browserHistory.push('/');
+    return (
+      <h1> </h1>
+    );
   }
 
   updateUserStatusInDB (user) {
@@ -90,11 +108,18 @@ class Login extends Component {
   }
   // Render the component. Note how we deploy both the Input and the Quotes Components
   render() {
-   
+    console.log("state of loggedIn: " + this.state.isLoggedIn);
+    console.log("errors: " + errorMessage);
+    const displayError = errorsFlag ? (<button className="btn-danger"> {errorMessage} </button>) : null;
+    errorMessage="";
+    errorsFlag=false;
     if (!this.state.loggedIn) {
       return (
+      <div className="form-top">
+        <h3 className="login-header">Log In</h3>
+        <p className="login-header">Welcome back!</p>
       <form className="formContainer">   
-        
+        {displayError}
         <label><b>Username</b></label>
         <input 
           type="text" 
@@ -120,10 +145,11 @@ class Login extends Component {
         Terms & Privacy</a>.</p>
 
         <div className="clearfix">
-            <button type="button"  className="cancelbtn">Cancel</button>
+            <button type="button"  className="cancelbtn" onClick={this.handleCancel}>Cancel</button>
             <button type="submit" className="signupbtn" onClick={this.handleSubmit}>Login</button>
         </div>
       </form>
+      </div>
       );
     }
     // If we have articles, return this.renderContainer() which in turn, returns all the articles

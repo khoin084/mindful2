@@ -3881,6 +3881,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 
 .btn-danger {
   color: #fff;
+  margin-top: 7px;
   background-color: #d9534f;
   border-color: #d43f3a;
 }
@@ -5944,12 +5945,7 @@ button.list-group-item-danger.active:focus {
 }
 
 .panel {
-  margin-bottom: 20px;
-  background-color: #fff;
   border: 1px solid transparent;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .panel-body {
@@ -6215,7 +6211,13 @@ button.list-group-item-danger.active:focus {
 }
 
 .panel-primary {
-  border-color: #337ab7;
+  margin: 5% 25%;
+  padding: 25px 25px 30px 25px;
+  width: 75%;
+	background: #444;
+	background: rgba(255, 255, 255, 0.4);
+	-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
+	text-align: left;
 }
 .panel-primary > .panel-heading {
   color: #fff;

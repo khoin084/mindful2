@@ -3,7 +3,7 @@ import { Route, IndexRoute, Router, browserHistory } from "react-router";
 // Include the helpers for making API calls
 import api from '../utils/API'
 import Login from './Login'
-
+let errors = [];
 
 // Create the Search component
 class Signup extends Component {
@@ -67,23 +67,50 @@ class Signup extends Component {
       password: "",
       psw_repeat: ""
     });
+    self = this;
     console.log("about to go to login page");
     return this.renderLogin();
   }
   // This code handles the sending of the entered user information from the Signup component.
   handleSubmit(event) {
     event.preventDefault();
-    console.log("CLICKED");
-    console.log(this.state)
-    api.saveSignUp(this.state);
+    console.log("********");
+    console.log("CLICKED ");
     
-    this.handleClearForm(event);
+    if(this.state.username === ""){
+      errors.push("Username filled is empty");
+    }
+    if(this.state.email === "") {
+      errors.push("Email is empty");
+    }
+    if(this.state.password === "" && this.state.password.length < 8 ) {
+      errors.push("Password needs to be atleast 8 characters long");
+    }
+    if(this.state.password !== this.state.psw_repeat) {
+      erros.push("Passwords dont match!");
+    }
+    if(errors.length === 0) {
+      api.saveSignUp(this.state);
+      this.handleClearForm(event);
+    }
+    console.log("accumulated errors: ", errors);
+    this.setState({
+      username: "",
+      email:"",
+      password: "",
+      psw_repeat: ""
+    });
+    
   }
-
+  handleCancel() {
+    browserHistory.push('/');
+    return (
+      <h1> </h1>
+    );
+  }
   componentDidMount() {
     console.log("mounted the Signup component");
   }
-
   // A helper method for rendering a container to hold all of our articles
   renderLogin() {
 
@@ -95,19 +122,30 @@ class Signup extends Component {
 
   // Render the component. Note how we deploy both the Input and the Quotes Components
   render() {
-    console.log(this.state);
-
+    console.log("accumulated errors: ", errors);
+    const errorResults = errors.map((error, index) => {
+      return (
+          <div key={index}>
+          <li className="list-group-item">
+              <button className="btn-danger">{error}</button>
+          </li>
+          </div>
+        );
+    });
+    //empty the array
+    errors.splice(0, errors.length);
     return (
     <div className="form-top">
-      <h3>Sign Up</h3>
-      <p>Fill out the form to get started.</p>
+      <h3 className="signup-header">Sign Up</h3>
+      <p className="signup-header">Fill out the form to get started.</p>
+      {errorResults}
       <form className="formContainer">   
         <label><b>Username</b></label>
         <input 
           type="text" 
           value={this.state.username}
           className="form-control"
-          placeholder="Enter Username" 
+          placeholder="Create a Username" 
           onChange={this.handleChangeUsername} 
           name="username"
           required />
@@ -122,12 +160,12 @@ class Signup extends Component {
           name="email" 
           required />
 
-        <label><b>City of Resisdence</b></label>
+        <label><b>City of Residence</b></label>
         <input 
           type="text" 
           value={this.state.city}
           className="form-control"
-          placeholder="Enter Your City of Resisdence" 
+          placeholder="Enter Your City of Residence" 
           onChange={this.handleChangeCity}
           name="city" 
           required />
@@ -137,7 +175,7 @@ class Signup extends Component {
           type="password"
           value={this.state.password}
           className="form-control"
-          placeholder="Enter Password" 
+          placeholder="Create a Password" 
           onChange={this.handleChangePassword}
           name="psw" 
           required />
@@ -147,7 +185,7 @@ class Signup extends Component {
           type="password" 
           value={this.state.psw_repeat}
           className="form-control"
-          placeholder="Repeat Password" 
+          placeholder="Confirm Your Password" 
           onChange={this.handleChangeRPassword}
           name="psw_repeat" 
           required />
@@ -158,13 +196,15 @@ class Signup extends Component {
         Terms & Privacy</a>.</p>
 
         <div className="clearfix">
-            <button type="button"  className="cancelbtn">Cancel</button>
+            <button type="button"  className="cancelbtn"onClick={this.handleCancel}>Cancel</button>
             <button type="submit" className="signupbtn" onClick={this.handleSubmit}>Sign Up</button>
         </div>
       </form>
     </div>
     );
+ 
   }
+
 }
 
 // Export the module back to the route

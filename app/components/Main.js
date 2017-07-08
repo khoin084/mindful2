@@ -4,6 +4,7 @@ import api from '../utils/API'
 // https://github.com/ReactTraining/react-router/blob/master/docs/API.md#link
 var Link = require("react-router").Link;
 import { Route, IndexRoute, Router, browserHistory } from "react-router";
+let flag = true;
 
 // very basic component to get started
 class Main extends React.Component {
@@ -56,7 +57,6 @@ class Main extends React.Component {
               <span className="icon-bar"></span>
             </button>
             <Link className="navbar-brand" to="/">Mindfulness</Link>
-            
           </div>
 
           <div className="collapse navbar-collapse navbar-ex1-collapse">

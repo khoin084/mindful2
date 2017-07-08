@@ -126,25 +126,25 @@ class UserPanel extends React.Component {
                                             <span className="li_heart"></span>
                                             <h3>933</h3>
                                         </div>
-                                        <p>933 People liked your page the last 24hs. Whoohoo!</p>
+                                        <p className="widget-info">933 People liked your page the last 24hs. Whoohoo!</p>
                                     </div>
                                     <div className="col-md-2 col-sm-2 box0">
                                         <div className="box1">
                                             <p>Click for Weather</p>
                                             <span className="li_cloud" onClick={this.handleWeatherClick}></span>
-                                            <h3>{this.state.tempInF}</h3>
+                                            <h3 className="li_cloud2">{this.state.tempInF}</h3>
                                             <h3>{this.state.humidity}</h3>
                                         </div>
-                                        <p>{this.state.city}</p>
+                                        <p className="widget-info">{this.state.city}</p>
                                         <p></p>
                                     </div>
                                     <div className="col-md-2 col-sm-2 box0">
                                         <div className="box1">
-                                            <p>Click for Audio Files</p>
+                                            <p>Click for Audio</p>
                                             <span className="li_stack" onClick={this.handleAudioClick}></span>
                                             <h3>23</h3>
                                         </div>
-                                        <p>Level up with Every session.</p>
+                                        <p className="widget-info">Level up with Every session.</p>
                                     </div>
                                     <div className="col-md-2 col-sm-2 box0">
                                         <div className="box1">
@@ -152,14 +152,14 @@ class UserPanel extends React.Component {
                                             <span className="li_news" onClick={this.handleNewsClick}></span>
                                             <h3>+10</h3>
                                         </div>
-                                        <p>Access Top News</p>
+                                        <p className="widget-info">Access Top News</p>
                                     </div>
                                     <div className="col-md-2 col-sm-2 box0">
                                         <div className="box1">
                                             <span className="li_data"></span>
                                             <h3>OK!</h3>
                                         </div>
-                                        <p>Your server is working perfectly. Relax & enjoy.</p>
+                                        <p className="widget-info">Your server is working perfectly. Relax & enjoy.</p>
                                     </div>
                                 </div>
                                 <div className="main-container">
@@ -167,7 +167,7 @@ class UserPanel extends React.Component {
                                         <div className="col-lg-12">
                                             <div className="panel panel-primary">
                                             <div className="panel-heading">
-                                                <h1 className="panel-title">
+                                                <h1>
                                                 <strong>
                                                     <i className="fa fa-btc" aria-hidden="true"></i> {headerTitle} </strong>
                                                 </h1>
