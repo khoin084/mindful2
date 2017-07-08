@@ -1,4 +1,5 @@
 var User = require("../models/User");
+var Audio = require("../models/Audio");
 var path = require("path");
 var bcrypt = require('bcrypt');
 var passport = require("passport");
@@ -12,6 +13,19 @@ module.exports = {
     
     User.find()
       .then(function(doc) {
+        res.json(doc);
+      }).catch(function(err) {
+        res.json(err);
+      });
+  },
+  // This method handles retrieving quotes from the db
+  getAudio: function(req, res) {
+    console.log("inside of getAudio()");
+    console.log(req.body);
+    
+    Audio.find()
+      .then(function(doc) {
+        console.log("retreived audio: ", doc);
         res.json(doc);
       }).catch(function(err) {
         res.json(err);
@@ -37,6 +51,20 @@ module.exports = {
         res.json(err);
       }); 
     });     
+  },
+   // This method handles creating new audio links
+  createAudio: function(req, res) {
+    let title = req.body.title;
+    let link = req.body.link;
+    console.log(req.body);
+
+    Audio.create(req.body).then(function(doc) {
+    console.log(doc);
+      res.json(doc);
+    }).catch(function(err) {
+      res.json(err);
+    }); 
+    
   },
   // This method handles updating quotes
   update: function(req, res) {

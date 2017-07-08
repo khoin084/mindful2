@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import api from '../utils/API'
 // Include children components.
 import SideBar from "./children_dashboard/SideBar"
-import MainSection from "./children_dashboard/MainSection"
+import UserPanel from "./children_dashboard/UserPanel"
 
 
 // Create the Search component
@@ -14,9 +14,6 @@ class Dashboard extends Component {
 
     this.state = { populated: false};
   }
-
-  
-
   // shouldComponentUpdate: function () {
   //   console.log("determine if we should render again?");
   //   return true;
@@ -36,7 +33,7 @@ class Dashboard extends Component {
         {/* Note how we pass the setQuery function to enable Query to perform searches */}
         {/* Note how we pass in the results into this component */}
         <SideBar />
-        <MainSection />
+        <UserPanel />
       </div>
     );
   }
